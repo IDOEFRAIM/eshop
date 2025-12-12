@@ -23,7 +23,7 @@ interface CategoryPageProps {
 // --- CONFIGURATION DU STYLE ---
 
 const categoryMeta: Record<string, { title: string; subtitle: string; tag: string }> = {
-  levre: { title: 'LÈVRES', subtitle: 'Pigments Quantiques', tag: 'PROTOCOLE V.2.4' },
+  levre: { title: 'LÈVRES', subtitle: 'Pigments Quantiques', tag: 'Apshop' },
   visage: { title: 'VISAGE', subtitle: 'Teint Adaptatif IA', tag: 'SMART-SKIN' },
   complet: { title: 'FULL LOOK', subtitle: 'Singularité Esthétique', tag: 'COLLECTION 2026' }
 };
@@ -134,7 +134,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         <header className="mb-24 relative">
             <Link href="/" className="inline-flex items-center text-white/40 hover:text-white transition-colors font-mono text-xs tracking-[0.3em] mb-8 group">
                 <ArrowLeft size={14} className="mr-3 group-hover:-translate-x-1 transition-transform" />
-                {`< Page d'accueil >`}
+                {`Page d'accueil `}
             </Link>
 
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-white/[0.08] pb-8 relative">
@@ -152,11 +152,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
                 <div className="text-right max-w-md">
                     <div className="text-xs font-mono text-white/40 mb-2 flex items-center justify-end gap-2">
-                         <Sparkles size={12} className={theme.text}/> STATUS: ONLINE
+                         <Sparkles size={12} className={theme.text}/> Amira Sorgho
                     </div>
                     <p className="text-white/60 text-sm leading-relaxed">
-                        Accès au catalogue complet. Analyse biomimétique activée. 
-                        Sélectionnez un artefact pour initialiser le transfert de données.
+                        Accès au catalogue complet. Avec APSHOP, tu es satisfait ou satisfait!
                     </p>
                 </div>
             </div>

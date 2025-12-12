@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Menu, Search, ShoppingBag, Fingerprint, ArrowRight, Plus, Hexagon, Sparkles } from 'lucide-react';
 // Assurez-vous que ce chemin d'import est correct pour votre projet
@@ -312,7 +313,9 @@ const AmiraHome = () => {
                 <div className="mt-40 pt-12 pb-20 border-t border-white/[0.08] flex flex-col items-center relative">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/4 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
                     <Fingerprint size={32} className="text-white/20 mb-6 animate-pulse-slow"/>
-                    <p className="text-white/40 text-xs font-mono tracking-[0.4em] uppercase">© 2026 Amira Systems. Tous droits réservés.</p>
+                    <p className="text-white/40 text-xs font-mono tracking-[0.4em] uppercase">© 2025 Amira Shop. Fais par <Link
+                     href='https://portfolio-tanka-jmct.vercel.app/en'
+                     className='text-sky-400 text-2xl'>Efraim IDO</Link> .</p>
                 </div>
 
             </main>

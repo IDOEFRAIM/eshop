@@ -14,7 +14,7 @@ import {
   Shirt
 } from 'lucide-react'
 
-import AmiraHome from '@/components_/amira/home'
+import AmiraHome from '@/components/home'
 
 const Page = () => {
   const [phase, setPhase] = useState<'boot' | 'auth' | 'scanning' | 'success' | 'app'>('boot')
