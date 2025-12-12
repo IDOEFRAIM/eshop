@@ -186,7 +186,7 @@ const ProductPage = () => {
                                     activeImage === idx ? `border-pink-500 ring-2 ring-pink-500/50 scale-95` : 'border-transparent opacity-60 hover:opacity-100'
                                 }`}
                             >
-                                <img src={img} className="w-full h-full object-cover" alt={`Vignette ${idx + 1}`} />
+                                <img src={img} className="w-full h-full object-cover" alt={` ${img}`} />
                             </button>
                         ))}
                     </div>

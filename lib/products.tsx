@@ -1,6 +1,7 @@
 import { Zap, Layers, Activity, LucideIcon } from "lucide-react";
 import React from "react";
 
+<<<<<<< HEAD
 // --- INTERFACES TYPESCRIPT ---
 
 // 1. Définir le type pour une caractéristique de produit
@@ -12,12 +13,24 @@ export interface ProductFeature {
 }
 
 // 2. Définir le type pour une nuance de couleur/teinte
+=======
+
+export interface ProductFeature {
+    label: string;
+    value: string;
+    icon: React.ReactNode; 
+}
+
+>>>>>>> master
 export interface ProductShade {
     name: string;
     hex: string;
 }
 
+<<<<<<< HEAD
 // 3. Définir la structure de base d'un produit
+=======
+>>>>>>> master
 export interface Product {
     id: string;
     category: string;
@@ -31,13 +44,17 @@ export interface Product {
     images: string[];
 }
 
+<<<<<<< HEAD
 // 4. Définir la structure globale de l'objet "products" avec des clés spécifiques
+=======
+>>>>>>> master
 export interface ProductData {
     levre: Product[];
     visage: Product[];
     complet: Product[];
 }
 
+<<<<<<< HEAD
 // --- CATALOGUE DE DONNÉES ---
 
 /**
@@ -45,6 +62,10 @@ export interface ProductData {
  * Les catégories principales (levre, visage, complet) contiennent une liste d'articles.
  */
 export const products: ProductData = { // Application du type ProductData à l'objet réel
+=======
+
+export const products: ProductData = {
+>>>>>>> master
     levre: [
         {
             id: 'lev-001',
