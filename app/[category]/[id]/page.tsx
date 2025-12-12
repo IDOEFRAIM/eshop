@@ -8,7 +8,7 @@ import {
     Zap, Check, MessageCircle, AlertTriangle, ChevronRight,
     Activity, Layers, Heart
 } from 'lucide-react'
-
+import Image from 'next/image'
 
 import { products as productData } from '@/lib/products'
 
@@ -160,7 +160,7 @@ const ProductPage = () => {
 
                     {/* Image principale (Effet 3D/holographique) */}
                     <div className="relative aspect-[4/5] w-full rounded-[2rem] overflow-hidden border border-white/10 group bg-gray-900/40">
-                        <img
+                        <Image
                             src={product.images[activeImage]}
                             alt={product.title}
                             className="w-full h-full object-contain transition-all duration-700 group-hover:scale-105 group-hover:drop-shadow-[0_40px_40px_rgba(0,0,0,0.5)]"
@@ -186,7 +186,7 @@ const ProductPage = () => {
                                     activeImage === idx ? `border-pink-500 ring-2 ring-pink-500/50 scale-95` : 'border-transparent opacity-60 hover:opacity-100'
                                 }`}
                             >
-                                <img src={img} className="w-full h-full object-cover" alt={` ${img}`} />
+                                <Image src={img} className="w-full h-full object-cover" alt={` ${img}`} />
                             </button>
                         ))}
                     </div>

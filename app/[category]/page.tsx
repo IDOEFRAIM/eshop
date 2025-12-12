@@ -11,6 +11,7 @@ import {
   Plus,
   AlertTriangle
 } from 'lucide-react';
+import Image from 'next/image';
 import { products } from '@/lib/products';
 
 interface CategoryPageProps {
@@ -180,7 +181,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                         </div>
 
                         <div className="flex-1 relative flex items-center justify-center perspective-1000 my-4">
-                            <img 
+                            <Image 
                                 src={product.images[0]} 
                                 alt={product.title}
                                 className="w-full h-full object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-700 group-hover:scale-110 group-hover:-translate-y-4 group-hover:rotate-3 group-hover:drop-shadow-[0_30px_50px_rgba(0,0,0,0.6)]" 

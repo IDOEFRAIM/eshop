@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Menu, Search, ShoppingBag, Fingerprint, ArrowRight, Plus, Hexagon, Sparkles } from 'lucide-react';
@@ -141,7 +142,7 @@ const AmiraHome = () => {
                         onMouseLeave={() => setHoveredCategory(null)}
                     >
                         <div className="absolute inset-0 z-0 overflow-hidden rounded-[3rem]">
-                            <img src={mainCategory.image} alt={mainCategory.title} className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 grayscale-[70%] group-hover:grayscale-0"/>
+                            <Image src={mainCategory.image} alt={mainCategory.title} className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 grayscale-[70%] group-hover:grayscale-0"/>
                             <div className="absolute inset-0 bg-[#050505]/60 transition-opacity duration-700 group-hover:opacity-30"></div>
                             <div className={`absolute inset-0 bg-gradient-to-t ${mainCategory.accentColor} opacity-0 group-hover:opacity-100 transition-opacity duration-700 mix-blend-soft-light`}></div>
                             <div className="absolute inset-0 bg-[url('/images/scanlines.png')] opacity-0 group-hover:opacity-10 mix-blend-overlay bg-repeat transition-opacity"></div>
@@ -172,7 +173,7 @@ const AmiraHome = () => {
                                 onMouseLeave={() => setHoveredCategory(null)}
                             >
                                 <div className="absolute inset-0 z-0 overflow-hidden rounded-[3rem]">
-                                   <img src={cat.image} alt={cat.title} className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 grayscale-[80%] group-hover:grayscale-0"/>
+                                   <Image src={cat.image} alt={cat.title} className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 grayscale-[80%] group-hover:grayscale-0"/>
                                    <div className="absolute inset-0 bg-[#050505]/60 transition-opacity duration-700 group-hover:opacity-30"></div>
                                    <div className={`absolute inset-0 bg-gradient-to-t ${cat.accentColor} opacity-0 group-hover:opacity-100 transition-opacity duration-700 mix-blend-soft-light`}></div>
                                 </div>
@@ -236,7 +237,7 @@ const AmiraHome = () => {
                                             </div>
 
                                             <div className="relative h-80 mb-6 flex items-center justify-center perspective-1000">
-                                               <img 
+                                               <Image 
                                                     src={product.img} 
                                                     alt={product.name}
                                                     className="w-full h-full object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-700 group-hover:scale-110 group-hover:-translate-y-4 group-hover:drop-shadow-[0_25px_40px_rgba(0,0,0,0.6)]" 
