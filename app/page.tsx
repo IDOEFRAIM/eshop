@@ -20,30 +20,25 @@ const Page = () => {
   const [phase, setPhase] = useState<'boot' | 'auth' | 'scanning' | 'success' | 'app'>('boot')
   const [scanProgress, setScanProgress] = useState(0)
 
-  // Navigation interne
   const [currentView, setCurrentView] = useState('hub')
   const [activeCategory, setActiveCategory] = useState('Pour Vous')
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [selectedOrder, setSelectedOrder] = useState(null)
 
-  // États UI
   const [viewMode, setViewMode] = useState('grid')
   const [ecoFilter, setEcoFilter] = useState(85)
   const [rotation, setRotation] = useState(0)
   const [explodedView, setExplodedView] = useState(false)
   const [incognitoMode, setIncognitoMode] = useState(false)
 
-  // Try-On (VTO)
   const [isVtoActive, setIsVtoActive] = useState(false)
 
   const startAuth = () => setPhase('scanning')
 
-  // IA Profil
   const [aiBoldness, setAiBoldness] = useState(75)
   const [aiSkinMatch, setAiSkinMatch] = useState(90)
   const [activeStyleZones, setActiveStyleZones] = useState(['Glamour', 'Avant-Garde'])
 
-  // --- SEQUENCES DE DEMARRAGE ---
   useEffect(() => {
     if (phase === 'boot') {
       const timer = setTimeout(() => setPhase('auth'), 2500)
