@@ -14,8 +14,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 // SEO
 export const metadata = {
-  title: "Efraim | Full-Stack & AI Engineer",
-  description: "Portfolio Engineering & AI. Discipline, Rigueur, Impact.",
+  title: "APSHOP | Le paradis de la beaute",
+  description: "  Ici,tu peux trouver n'importe quel produit de beaute",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
