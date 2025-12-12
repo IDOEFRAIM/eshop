@@ -315,7 +315,7 @@ const AmiraHome = () => {
                     <Fingerprint size={32} className="text-white/20 mb-6 animate-pulse-slow"/>
                     <p className="text-white/40 text-xs font-mono tracking-[0.4em] uppercase">© 2025 Amira Shop. Fais par <Link
                      href='https://portfolio-tanka-jmct.vercel.app/en'
-                     className='text-sky-400 text-2xl'>Efraim IDO</Link> .</p>
+                     className='text-sky-400 text-2xl'>Efraim T. IDO</Link> .</p>
                 </div>
 
             </main>
