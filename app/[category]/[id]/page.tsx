@@ -9,12 +9,10 @@ import {
     Activity, Layers, Heart
 } from 'lucide-react'
 
-// Assurez-vous que ce chemin d'import est correct pour votre projet
-// Contient la structure des données de produits
+
 import { products as productData } from '@/lib/products'
 
-// --- CONFIGURATION D'ICÔNES ET DE THÈMES (pour le style) ---
-// Récupérer le thème de couleur par catégorie pour l'affichage cohérent
+
 const categoryThemes: Record<string, { accentText: string; accentBg: string }> = {
   levre: { 
     accentText: "text-pink-400", 
@@ -30,50 +28,40 @@ const categoryThemes: Record<string, { accentText: string; accentBg: string }> =
   }
 };
 
-// --- COMPOSANT PRINCIPAL ---
 
 const ProductPage = () => {
-    // Les 'params' sont utilisés directement dans un composant client (useParams)
+
     const params = useParams();
     const { category: rawCategory, id: productId } = params;
     console.log(productId)
-    // Nettoyage et validation des paramètres pour éviter les erreurs de type ou d'affichage 'undefined'
+
     const category = Array.isArray(rawCategory) ? rawCategory[0] : rawCategory || '';
     const id = Array.isArray(productId) ? productId[0] : productId || '';
 
-    // --- LOGIQUE DE RÉCUPÉRATION DES DONNÉES ---
-    // Optimisation de la recherche de produit avec useMemo
+
     const product = useMemo(() => {
         if (!category || !id) return null;
         
-        // S'assurer que la clé de catégorie est en minuscules pour correspondre à la structure de productData
         const categoryKey = category.toLowerCase() as keyof typeof productData;
 
-        // Vérifier si la catégorie existe dans les données
         if (!(categoryKey in productData)) return null;
 
         const productList = productData[categoryKey];
         return productList?.find((p) => p.id === id);
     }, [category, id]);
 
-    // Récupération du thème
     const theme = categoryThemes[category.toLowerCase() as keyof typeof categoryThemes] || categoryThemes.levre;
 
-    // --- ÉTATS INTERNES ---
     const [activeImage, setActiveImage] = useState(0);
     const [selectedShade, setSelectedShade] = useState(0);
 
-    // Fonction de retour en arrière (méthode client-side)
     const goBack = () => window.history.back();
 
-    // --- GESTION DU PRODUIT INTROUVABLE (404 Stylisé et SÉCURISÉ) ---
     if (!product) {
         
-        // Définir la catégorie de retour (vers la catégorie si possible, sinon vers la racine)
         const safeCategory = category || '';
         const availableCategoryLink = safeCategory ? `/${safeCategory}` : '/';
         
-        // Construction du message d'erreur plus précis
         let errorMessage = 'Artefact ID manquant.';
         
         if (id && category) {

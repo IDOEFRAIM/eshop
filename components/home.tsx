@@ -1,17 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Menu, Search, ShoppingBag, Fingerprint, ArrowRight, Plus, Hexagon, Sparkles } from 'lucide-react';
-// Assurez-vous que ce chemin d'import est correct pour votre projet
 import { products as productData, ProductData } from '@/lib/products';
 
-// 1. Définir le type des clés de catégorie à partir de la structure de productData
 type CategoryKey = keyof ProductData;
 
-// Définir la structure pour une entrée de catégorie
 interface CategoryEntry {
-    id: CategoryKey; // Utiliser le type CategoryKey ici
+    id: CategoryKey; 
     title: string;
     subtitle: string;
     tag: string;
@@ -28,8 +26,6 @@ const AmiraHome = () => {
         router.push(path);
     };
 
-    // --- CONFIGURATION DES DONNÉES ---
-    // Typage de l'array categories avec CategoryEntry[]
     const categories: CategoryEntry[] = [
         {
             id: 'levre',
@@ -66,9 +62,7 @@ const AmiraHome = () => {
         complet: []
     };
     
-    // Le typage dans categories: CategoryEntry[] garantit que cat.id est CategoryKey
     categories.forEach(cat => {
-        // Assertion non nécessaire grâce au typage CategoryKey dans CategoryEntry
         const samples = (productData[cat.id] || []).slice(0, 3).map((product: any) => ({
             id: product.id,
             name: product.title,
@@ -88,13 +82,11 @@ const AmiraHome = () => {
         handleNavigation(`/${categoryId}/${productId}`);
     };
 
-    // --- RENDU ---
     return (
         <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-pink-500/50 selection:text-white overflow-x-hidden relative">
             
-            {/* --- FOND AMBIANT (Captivant) --- */}
+            {/*FOND AMBIANT (Captivant)  */}
             <div className="fixed inset-0 z-0 pointer-events-none">
-                {/* Orbites de lumière mouvantes */}
                 <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-purple-600/30 rounded-full blur-[150px] animate-pulse-slow mix-blend-screen" />
                 <div className="absolute bottom-0 right-[-10%] w-[700px] h-[700px] bg-pink-600/20 rounded-full blur-[180px] animate-pulse-slow delay-700 mix-blend-screen" />
                 <div className="absolute top-[30%] right-[20%] w-[400px] h-[400px] bg-blue-600/20 rounded-full blur-[120px] animate-pulse-slow delay-1000 mix-blend-screen" />
@@ -105,8 +97,7 @@ const AmiraHome = () => {
                 <div className="absolute inset-0 bg-radial-gradient-to-t from-black via-transparent to-black/80 opacity-80"></div>
             </div>
 
-            {/* --- HEADER NAV (Fixe, Flou) --- */}
-            {/* J'ajoute une barre de navigation pour un composant de page d'accueil complet */}
+            {/*HEADER NAV (Fixe, Flou)*/}
             <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-6 flex justify-between items-center bg-gradient-to-b from-black via-black/80 to-transparent backdrop-blur-md">
                 <div className="text-3xl font-black tracking-tighter text-white">
                     <span className="text-pink-400 font-extrabold">A</span>mira
@@ -129,7 +120,6 @@ const AmiraHome = () => {
             {/* --- HERO SECTION --- */}
             <main className="relative z-10 pt-40 pb-12 px-4 max-w-[90rem] mx-auto">
                 <div className="text-center mb-24 space-y-8">
-                    {/* Badge Biomimétique */}
                     <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-pink-500/30 bg-pink-900/20 text-pink-300 text-xs tracking-[0.2em] uppercase font-mono shadow-[0_0_15px_rgba(236,72,153,0.2)] animate-fade-in-up">
                         <Fingerprint size={14} className="text-pink-400 animate-pulse" /> 
                         <span className="relative">
@@ -138,33 +128,25 @@ const AmiraHome = () => {
                         </span>
                     </div>
                     
-                    {/* Titre Principal Massif */}
                     <h1 className="text-7xl md:text-[10rem] font-black tracking-tighter leading-[0.85] mix-blend-overlay opacity-90 text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-300 to-gray-600 animate-fade-in-up delay-200 select-none">
                         BEAUTÉ <br/> AUGMENTÉE
                     </h1>
                 </div>
 
-                {/* --- GRID BENTO (Captivante) --- */}
                 <div className="grid grid-cols-12 gap-6 h-auto md:h-[750px] mb-40">
-                    {/* Carte Principale (FULL LOOK) */}
                     <div 
                         className="col-span-12 md:col-span-8 relative group rounded-[3rem] overflow-hidden cursor-pointer transition-all duration-700 hover:shadow-[0_20px_80px_-20px_rgba(16,185,129,0.3)] ring-1 ring-white/10 hover:ring-emerald-500/50 z-10 hover:z-20"
                         onClick={() => handleNavigation(`/${mainCategory.id}`)}
                         onMouseEnter={() => setHoveredCategory(mainCategory.id)}
                         onMouseLeave={() => setHoveredCategory(null)}
                     >
-                        {/* Arrière-plan image et effets */}
                         <div className="absolute inset-0 z-0 overflow-hidden rounded-[3rem]">
                             <img src={mainCategory.image} alt={mainCategory.title} className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 grayscale-[70%] group-hover:grayscale-0"/>
-                            {/* Overlay sombre de base */}
                             <div className="absolute inset-0 bg-[#050505]/60 transition-opacity duration-700 group-hover:opacity-30"></div>
-                            {/* Lumière d'accentuation au survol */}
                             <div className={`absolute inset-0 bg-gradient-to-t ${mainCategory.accentColor} opacity-0 group-hover:opacity-100 transition-opacity duration-700 mix-blend-soft-light`}></div>
-                            {/* Scanline effect */}
                             <div className="absolute inset-0 bg-[url('/images/scanlines.png')] opacity-0 group-hover:opacity-10 mix-blend-overlay bg-repeat transition-opacity"></div>
                         </div>
                         
-                        {/* Contenu texte */}
                         <div className="absolute inset-0 p-12 flex flex-col justify-end z-20">
                             <div className="transform transition-all duration-700 group-hover:translate-x-4 group-hover:-translate-y-4">
                                 <div className="flex items-center gap-3 mb-4 overflow-hidden">
@@ -178,7 +160,6 @@ const AmiraHome = () => {
                         </div>
                     </div>
 
-                    {/* Cartes Secondaires (LÈVRES & VISAGE) */}
                     <div className="col-span-12 md:col-span-4 flex flex-col gap-6 h-full">
                         {sideCategories.map((cat) => (
                             <div 
@@ -207,12 +188,10 @@ const AmiraHome = () => {
                     </div>
                 </div>
 
-                {/* --- SECTION PRODUITS (Style "Capsule de Stase") --- */}
                 <div className="space-y-40">
                     {categories.map((category) => (
                         <div key={category.id} className="relative">
                             
-                            {/* Header de section Data-Stream */}
                             <div className="flex items-end justify-between mb-16 border-b border-white/[0.08] pb-6 relative">
                                 <div className="absolute bottom-0 left-0 w-1/3 h-[1px] bg-gradient-to-r from-white/30 to-transparent"></div>
                                 <div className="flex items-center gap-4">
@@ -237,39 +216,31 @@ const AmiraHome = () => {
                                 </button>
                             </div>
 
-                            {/* Grid des Produits (Capsules) */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                                {
                                  productSamples[category.id]?.map((product: any) => (
-                                    // Carte Capsule
                                     <div 
                                         key={product.id} 
                                         className="group relative rounded-[2.5rem] cursor-pointer transition-all duration-500 z-10 hover:z-20"
                                         onClick={(e) => handleProductClick(product.categoryId, product.id, e)}
                                     >
-                                        {/* Forme de fond "verre liquide" */}
                                         <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-xl rounded-[2.5rem] border border-white/[0.05] shadow-[inset_0_0_30px_rgba(255,255,255,0.02)] transition-all duration-500 group-hover:bg-white/[0.06] group-hover:border-white/20 group-hover:shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8),inset_0_0_40px_rgba(255,255,255,0.05)] overflow-hidden">
-                                            {/* Lumière d'accentuation au survol */}
                                             <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[200%] h-1/2 bg-gradient-to-t ${category.accentColor} opacity-0 group-hover:opacity-40 blur-[80px] transition-all duration-700 pointer-events-none`}></div>
                                         </div>
 
-                                        {/* Contenu de la capsule */}
                                         <div className="relative p-6 h-full flex flex-col">
-                                            {/* Tag Holographique */}
                                             <div className="absolute top-6 left-6 z-30 flex items-center gap-2">
                                                 <div className={`px-3 py-1.5 rounded-md bg-black/40 backdrop-blur-md border border-white/10 text-[10px] font-mono tracking-[0.2em] text-white/80 group-hover:text-white group-hover:border-${category.textColor.replace('text-', '')}/30 transition-colors`}>
                                                     {product.tag}
                                                 </div>
                                             </div>
 
-                                            {/* Zone Image (Lévitation) */}
                                             <div className="relative h-80 mb-6 flex items-center justify-center perspective-1000">
                                                <img 
                                                     src={product.img} 
                                                     alt={product.name}
                                                     className="w-full h-full object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-all duration-700 group-hover:scale-110 group-hover:-translate-y-4 group-hover:drop-shadow-[0_25px_40px_rgba(0,0,0,0.6)]" 
                                                 />
-                                                {/* Effet de scan lumineux sur l'objet au survol */}
                                                 <div className={`absolute inset-0 bg-gradient-to-tr ${category.accentColor} mix-blend-overlay opacity-0 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none rounded-3xl`}></div>
                                             </div>
 
@@ -287,7 +258,6 @@ const AmiraHome = () => {
                                                     <span className={`font-mono text-2xl font-bold ${category.textColor} transform group-hover:translate-x-2 transition-transform duration-500`}>{product.price}</span>
                                                 </div>
 
-                                                {/* Bouton d'action Orbe Magnétique */}
                                                 <div className="absolute -bottom-2 -right-2 pointer-events-none">
                                                      <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${category.accentColor.replace('to-transparent', 'to-white/20')} blur-[30px] opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
                                                 </div>
@@ -308,11 +278,14 @@ const AmiraHome = () => {
                     ))}
                 </div>
 
-                {/* --- FOOTER --- */}
                 <div className="mt-40 pt-12 pb-20 border-t border-white/[0.08] flex flex-col items-center relative">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/4 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
                     <Fingerprint size={32} className="text-white/20 mb-6 animate-pulse-slow"/>
-                    <p className="text-white/40 text-xs font-mono tracking-[0.4em] uppercase">© 2026 Amira Systems. Tous droits réservés.</p>
+                    <p className="text-white/40 text-xs font-mono tracking-[0.4em] uppercase">© 2026 Amira Systems. Fait par 
+                    <Link
+                    href='https://portfolio-tanka-jmct.vercel.app/en'
+                    className='text-sky-400 text-2xl'>Efraim IDO</Link>
+                    </p>
                 </div>
 
             </main>

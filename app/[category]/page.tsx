@@ -13,7 +13,6 @@ import {
 } from 'lucide-react';
 import { products } from '@/lib/products';
 
-// Type pour les props de la page (Compatible Next.js 14/15)
 interface CategoryPageProps {
   params: {
     category: string;
@@ -66,17 +65,13 @@ const Rating = ({ value }: { value: number }) => (
   </div>
 );
 
-// --- PAGE PRINCIPALE (ASYNC) ---
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
-  // 1. Récupération sécurisée du paramètre (Attente explicite pour Next 15, compatible 14)
   const resolvedParams = await params; // Important si vous êtes sur les dernières versions
   
-  // 2. Nettoyage et décodage de la clé (gestion des %20, accents, etc.)
   const rawCategory = resolvedParams?.category ? decodeURIComponent(resolvedParams.category) : '';
   const categoryKey = rawCategory.toLowerCase().trim();
 
-  // 3. Récupération des données
   // On force le typage pour éviter les erreurs TypeScript sur les clés dynamiques
   const productList = products[categoryKey as keyof typeof products];
   
@@ -85,7 +80,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const meta = categoryMeta[categoryKey] || { title: categoryKey?.toUpperCase(), subtitle: 'Data Stream', tag: 'UNKNOWN' };
   const Icon = categoryIcons[categoryKey] || Hexagon;
 
-  // --- GESTION ERREUR (404) ---
+  // GESTION ERREUR (404) 
   if (!productList) {
     const availableKeys = Object.keys(products).join(', ');
     
@@ -134,7 +129,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         <header className="mb-24 relative">
             <Link href="/" className="inline-flex items-center text-white/40 hover:text-white transition-colors font-mono text-xs tracking-[0.3em] mb-8 group">
                 <ArrowLeft size={14} className="mr-3 group-hover:-translate-x-1 transition-transform" />
-                {`< Page d'accueil >`}
+                {`Page d'accueil`}
             </Link>
 
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-white/[0.08] pb-8 relative">
