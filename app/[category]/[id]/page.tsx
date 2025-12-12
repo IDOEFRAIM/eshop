@@ -67,7 +67,7 @@ const ProductPage = () => {
         if (id && category) {
             errorMessage = `Artefact ID «${id}» est introuvable dans le répertoire «${category}».`;
         } else if (category) {
-            errorMessage = `Artefact ID manquant. Veuillez spécifier un ID pour le répertoire «${category}».`;
+            errorMessage = `Ce produit n'est malheureusement pas present dans notre catalogue. Veuillez spécifier un ID pour le répertoire «${category}».`;
         } else {
             errorMessage = 'Accès non spécifié. Le chemin d\'accès est incomplet ou invalide.';
         }
