@@ -1,0 +1,82 @@
+/* Tailwind v4 utilise une approche basée sur les imports CSS natifs */
+@import "tailwindcss";
+
+@theme { /* Définition daes variables de thème selon votre charte Confidence Beauty / --color-background: #ffffff; --color-accent: #f5f5f0; / Beige sable très clair */
+
+--font-serif: 'Playfair Display', serif;
+--font-sans: 'Inter', sans-serif;
+
+--animate-fade-in: fadeIn 0.6s ease-out forwards;
+}
+
+@layer base {
+:root {
+--background: 0 0% 100%;
+--foreground: 200 50% 3%;
+}
+
+body {
+background-color: white;
+color: #111827; /* gray-900 */
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+overflow-x: hidden;
+font-feature-settings: "ss01", "ss02", "cv01", "cv03";
+}
+
+h1, h2, h3, .font-serif {
+font-family: var(--font-serif);
+letter-spacing: -0.025em; /* tracking-tight */
+}
+
+p, span, .font-sans {
+font-family: var(--font-sans);
+}
+}
+
+@layer components {
+/* Effet de transition fluide pour le "Single Page Feeling" */
+.page-fade-in {
+animation: var(--animate-fade-in);
+}
+
+/* Style minimaliste pour les boutons */
+.btn-luxe {
+display: inline-block;
+padding: 0.75rem 2rem;
+border: 1px solid black;
+color: black;
+background-color: transparent;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+text-transform: uppercase;
+font-size: 0.75rem;
+letter-spacing: 0.2em;
+font-weight: 500;
+}
+
+.btn-luxe:hover {
+background-color: black;
+color: white;
+}
+
+/* Masquer la scrollbar tout en gardant la fonctionnalité */
+.hide-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+display: none;
+}
+}
+
+@keyframes fadeIn {
+from {
+opacity: 0;
+transform: translateY(10px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
