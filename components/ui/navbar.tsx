@@ -13,6 +13,20 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const navItem = [
+    {
+        'name':'accueil',
+        'link':''
+    },
+        {
+        'name':'produits',
+        'link':'products'
+    },
+        {
+        'name':'A propos de moi',
+        'link':'about'
+    },
+  ]
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
@@ -40,7 +54,7 @@ const Header = () => {
       {/* Centre : Logo */}
       <Link href="/" className="absolute left-1/2 -translate-x-1/2">
         <h1 className="text-2xl font-serif italic lowercase tracking-tighter text-stone-900">
-          confidence
+          Amira shop
         </h1>
       </Link>
       
@@ -76,16 +90,17 @@ const Header = () => {
             </div>
 
             <ul className="space-y-6 text-6xl md:text-8xl font-serif italic text-stone-900">
-              {['accueil', 'produits', 'rituels', 'journal'].map((item, idx) => (
+              {
+              navItem.map((item, idx) => (
                 <motion.li 
-                  key={item}
+                  key={item.name}
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.2 + idx * 0.1 }}
                   className="hover:translate-x-6 transition-transform cursor-pointer hover:text-rose-400"
                 >
-                  <Link href={`/${item}`} onClick={() => setIsOpen(false)}>
-                    {item}
+                  <Link href={`/${item.link}`} onClick={() => setIsOpen(false)}>
+                    {item.name}
                   </Link>
                 </motion.li>
               ))}
