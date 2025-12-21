@@ -30,7 +30,7 @@ export default function ProductPage({
   }, [decodedCategory, productId]);
 
   const handleWhatsAppOrder = () => {
-    const phoneNumber = "2+22601479800"; 
+    const phoneNumber = "+22601118080"; 
     const message = encodeURIComponent(`Bonjour, je souhaite commander le produit "${product?.name}" (${product?.price} F CFA) de la collection ${decodedCategory}.`);
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
