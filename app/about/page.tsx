@@ -17,7 +17,7 @@ const AboutPage = () => {
           <div className="absolute inset-0 bg-black/20 z-10"></div>
           {/* Simulation d'une image de paysage du Sahel ou de récolte de karité */}
           <div className="w-full h-full bg-[#E5DACE] flex items-center justify-center text-gray-400">
-            [Image du paysage sahélien au Burkina Faso au coucher du soleil]
+            Burkina Faso
           </div>
         </div>
         
@@ -52,7 +52,7 @@ const AboutPage = () => {
           <div className="order-2 md:order-1">
             <div className="aspect-[3/4] bg-white shadow-2xl overflow-hidden relative group">
                <div className="absolute inset-0 flex items-center justify-center text-gray-300 italic p-12 text-center">
-                 [Image macro de beurre de karité brut et pur]
+                 AMIRA
                </div>
             </div>
           </div>

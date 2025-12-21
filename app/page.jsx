@@ -152,8 +152,8 @@ export default function HomePage() {
            <h2 className="text-4xl font-serif mb-20 text-center italic text-stone-900">Questions Confidentielles</h2>
            <div className="space-y-4">
              {[
-               { q: "Quels sont vos engagements ?", a: "Pureté botanique, zéro plastique et une transparence totale sur l'origine de nos actifs." },
-               { q: "Livrez-vous partout ?", a: "Nous expédions nos rituels dans tout le pays sous 24h à 48h dans des écrins éco-conçus." },
+               { q: "Quels sont vos engagements ?", a: "Nous travaillons avec serieux et respect de la clientele." },
+               { q: "Livrez-vous partout ?", a: "Nous expédions nos produits principalement a Ouagadougou" },
                { q: "Comment choisir mon soin ?", a: "Chaque fiche produit détaille le type de peau idéal. Vous pouvez aussi nous contacter sur WhatsApp." }
              ].map((faq, i) => (
                <details key={i} className="group border-b border-rose-50">
