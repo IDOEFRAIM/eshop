@@ -1,14 +1,27 @@
+import { desc } from "framer-motion/client";
+
 const CATEGORIZED_PRODUCTS = {
   "Lèvres": [
     {
       id: "Cup-lipgloss",
       name: "Cup lipgloss",
-      price: 1000,
+      price: 850,
       subCategory: "gloss",
       description: "Cup Lipgloss (Le ludique) ​Le petit rafraîchissement de vos lèvres.Craquez pour ce gloss ultra-original en forme de petit gobelet avec sa paille ! Un design fun et gourmand qui apporte une brillance irrésistible à votre sourire. C’est le compagnon parfait à glisser dans votre sac pour une touche de pep’s au quotidien.Le petit plus : Son design unique qui attire tous les regards.",
       longDescription: "gloss",
       ingredients: ["caracterique1","caracterique1","caracterique1"],
       images: ["/cup_lipgloss.jpeg"],
+      ecoScore: 92
+    },
+    {
+      id: "collagen-mask",
+      name: "collagen lip mask",
+      price: 1000,
+      subCategory: "collagen_mask",
+      description: "Cup Lipgloss (Le ludique) ​Le petit rafraîchissement de vos lèvres.Craquez pour ce gloss ultra-original en forme de petit gobelet avec sa paille ! Un design fun et gourmand qui apporte une brillance irrésistible à votre sourire. C’est le compagnon parfait à glisser dans votre sac pour une touche de pep’s au quotidien.Le petit plus : Son design unique qui attire tous les regards.",
+      longDescription: "gloss",
+      ingredients: ["caracterique1","caracterique1","caracterique1"],
+      images: ["/collagen_lip_mask_1.jpeg","/collagen_lip_mask_2.jpeg","/collagen_lip_mask_3.jpeg"],
       ecoScore: 92
     },
     {
@@ -34,14 +47,14 @@ const CATEGORIZED_PRODUCTS = {
       ecoScore: 92
     },
         {
-      id: "perfum-bottle-lipgloss",
-      name: "perfum bottle lipgloss",
+      id: "rose-lipgloss",
+      name: "rose lipgloss",
       price: 1000,
       subCategory: "gloss",
       description: "​La poésie au bout des lèvres.Découvrez la magie de notre gloss Fleur Éternelle. Une véritable fleur est délicatement emprisonnée dans son couvercle, symbole de beauté durable. Un produit féerique qui sublime vos lèvres tout en décorant votre coiffeuse.Design : Délicat et romantique.",
       longDescription: "​L’élégance d’un parfum, l’éclat d’un gloss.Alliez luxe et beauté avec ce gloss présenté dans un flacon de parfum raffiné. Un véritable bijou de sac à main qui habille vos lèvres d’un fini précieux et sophistiqué. Pour celles qui aiment le détail qui fait la différence.​Style : Chic et luxueux.",
       ingredients: ["caracterique1","caracterique1","caracterique1"],
-      images: ["/perfum_bottle_1.jpeg","/perfum_bottle_2.jpeg","/perfum_bottle_3.jpeg"],
+      images: ["/perfum_bottle_1.jpeg","/perfum_bottle_3.jpeg"],
       ecoScore: 92
     },
     {
@@ -58,7 +71,7 @@ const CATEGORIZED_PRODUCTS = {
         {
       id: "teddy-bear-lipgloss",
       name: "teddy 🧸 bear lipgloss",
-      price: 850,
+      price: 1000,
       subCategory: "gloss",
       description: "​Un câlin de lumière.Laissez-vous séduire par ce petit ours scintillant ! Ce gloss adorable contient des paillettes magiques pour un sourire qui pétille. Un design craquant et une texture brillante pour un look à croquer.​Rendu : Scintillant et pailleté.",
       longDescription: "GLOSS",
@@ -78,14 +91,14 @@ const CATEGORIZED_PRODUCTS = {
       ecoScore: 92
     },
         {
-      id: "Rose-lipgloss",
-      name: "Rose lipgloss ",
+      id: "perfum-bottle-lipgloss",
+      name: "perfum-bottle lipgloss ",
       price: 1000,
       subCategory: "gloss",
       description: "GLOSS",
       longDescription: "gloss",
       ingredients: ["caracterique1","caracterique1","caracterique1"],
-      images: ["/fruity_lipgloss.jpeg"],
+      images: ["/fruity_lipgloss.jpeg","/perfum_bottle_2.jpeg"],
       ecoScore: 92
     },
             {
@@ -100,7 +113,20 @@ const CATEGORIZED_PRODUCTS = {
       ecoScore: 92
     },
   ],
-  "accessoire": [
+"visage":[
+      {
+      id: "Patch-Anti-Cerne-Anti-Poche",
+      name: "Patch Anti-Cerne / Anti-Poche",
+      price: 2000,
+      subCategory: "Le Réveil Express pour Vos Yeux Fatigués.Effacez les traces de fatigue en un instant ! Ces patchs hydrogels sont infusés d'actifs puissants pour dégonfler les poches et éclaircir visiblement les cernes. En 10 minutes, le contour de l'œil est hydraté, lissé, et votre regard retrouve toute sa fraîcheur et sa vitalité. Le secret des matins pressés.",
+      description: "a decrire par amira",
+      longDescription: "BARETTE",
+      ingredients: ["caracterique1","caracterique1","caracterique1"],
+      images: ["/barette.jpeg"],
+      ecoScore: 92
+    },
+]  ,
+"accessoire": [
     {
       id: "Barettes-à-cheveux-labubu",
       name: "Barettes à cheveux labubu",
@@ -115,12 +141,12 @@ const CATEGORIZED_PRODUCTS = {
     {
       id: "moiror-lil-gloss",
       name: "moiror lil gloss",
-      price: 1500,
+      price: 1000,
       subCategory: "mirroir",
       description: "Le duo parfait : Retouche & Précision.Ne cherchez plus votre miroir ! Ce gloss innovant intègre un miroir directement sur son tube. Idéal pour des retouches rapides et impeccables, où que vous soyez. Une brillance parfaite, sans aucun faux pas.Le petit plus : Praticité maximale pour les femmes pressées.",
       longDescription: "MIROIR",
       ingredients: ["caracterique1","caracterique1","caracterique1"],
-      images: ["/mirroir_gloss.jpeg"],
+      images: ["/mirroir_lipgloss_1.jpeg"],
       ecoScore: 92
     },
     

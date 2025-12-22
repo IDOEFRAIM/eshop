@@ -38,9 +38,9 @@ export default function HomePage() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[#F9F3F2]">
         <motion.div style={{ y: yHero, scale: scaleImage }} className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80" 
-            alt="Nature Confidence" 
-            className="w-full h-full object-cover opacity-40 mix-blend-multiply"
+          src='/home.jpeg'
+alt="Nature Confidence" 
+            className="w-full h-full object-contain opacity-40 mix-blend-multiply"
           />
         </motion.div>
 
