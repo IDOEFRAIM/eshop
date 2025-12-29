@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "components/product/base-product.jsx", "components/ui/base-ui.jsx", "components/layout/base-layout.jsx", "tailwind.config.js", "app/page.jsx"  ],
+, "components/product/base-product.jsx", "components/ui/base-ui.jsx", "components/layout/base-layout.jsx", "tailwind.config.js", "app/page.tsx", "app/login/page.tsx", "components/ui/adminNavbar.tsx"  ],
   "exclude": ["node_modules"]
 }
