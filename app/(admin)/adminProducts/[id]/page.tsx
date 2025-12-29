@@ -1,4 +1,4 @@
-import React from 'react';
+export const dynamic = 'force-dynamic';
 import { 
   databases, storage, 
   DATABASE_ID, COLLECTION_PRODUCTS_ID, BUCKET_IMAGES_ID 

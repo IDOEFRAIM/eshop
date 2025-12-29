@@ -1,5 +1,5 @@
 'use client'
-
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { LucideSparkles, ArrowRight, Loader2, ShoppingBag } from 'lucide-react';

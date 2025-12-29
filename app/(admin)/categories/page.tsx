@@ -1,5 +1,5 @@
 "use client";
-
+export const dynamic = 'force-dynamic';
 import React, { useEffect, useState } from 'react';
 import { 
   Plus, Trash2, Loader2, Tag, ArrowLeft, LayoutGrid, Sparkles 

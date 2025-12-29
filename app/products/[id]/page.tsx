@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { databases, DATABASE_ID, COLLECTION_PRODUCTS_ID } from '@/lib/appwrite';
 import ProductClient from '@/components/ui/productClient';
 import { notFound } from 'next/navigation';
