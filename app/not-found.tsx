@@ -29,7 +29,7 @@ export default function NotFound() {
       {/* Texte Principal */}
       <div className="space-y-4 max-w-md">
         <h1 className="text-4xl md:text-5xl font-serif italic text-brand-night">
-          Oups, éclat introuvable <span className="text-brand-azure">.</span>
+          Oups, produit introuvable <span className="text-brand-azure">.</span>
         </h1>
         <p className="text-brand-night/60 font-light text-lg">
           Cette page semble s'être évaporée. Pas d'inquiétude, nos meilleurs gloss vous attendent ailleurs.

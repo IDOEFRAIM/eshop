@@ -14,6 +14,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { storage, BUCKET_IMAGES_ID } from '@/lib/appwrite';
+import { resolveImageUrl } from '@/lib/data-service';
 
 interface ProductClientProps {
   product: any;
@@ -28,8 +29,7 @@ export default function ProductClient({ product }: ProductClientProps) {
   }, []);
 
   const getImageUrl = (imageId: string) => {
-    if (!imageId) return '/placeholder.jpg';
-    return storage.getFileView(BUCKET_IMAGES_ID, imageId).toString();
+    return resolveImageUrl(imageId);
   };
 
   const handleWhatsAppOrder = () => {

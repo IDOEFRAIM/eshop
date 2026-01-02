@@ -16,31 +16,34 @@ import {
   DATABASE_ID, COLLECTION_PRODUCTS_ID, BUCKET_IMAGES_ID 
 } from '@/lib/appwrite';
 import { Query } from 'appwrite';
+import { dataService, resolveImageUrl, LOCAL_PRODUCTS } from '@/lib/data-service';
 
 // Fonction pour récupérer les produits Signature (limité à 3)
 const fetchSignatureProducts = async () => {
-  const response = await databases.listDocuments(
-    DATABASE_ID, 
-    COLLECTION_PRODUCTS_ID,
-    [Query.limit(3), Query.orderDesc('$createdAt')] // On prend les 3 plus récents
-  );
-  return response.documents;
+  return await dataService.getProducts([Query.limit(3), Query.orderDesc('$createdAt')]);
 };
 
 export default function HomePage() {
   const { scrollYProgress } = useScroll();
   
   // 1. Hook TanStack Query
-  const { data: signatureProducts, isLoading } = useQuery({
+  const { data: signatureProducts, isLoading, isError } = useQuery({
     queryKey: ['signatureProducts'],
     queryFn: fetchSignatureProducts,
+    initialData: LOCAL_PRODUCTS.slice(0, 3), // Fallback immédiat
+    staleTime: 0, // Toujours essayer de récupérer les données fraîches
+    retry: 3, // Réessayer 3 fois en cas d'échec
   });
 
   // Helper pour les images Appwrite
   const getImageUrl = (imageId: string) => {
-    if (!imageId) return '';
-    return storage.getFileView(BUCKET_IMAGES_ID, imageId).toString();
+    return resolveImageUrl(imageId);
   };
+
+  // Gestion d'erreur silencieuse (ou affichage discret)
+  if (isError) {
+    console.error("Erreur lors du chargement des produits signature.");
+  }
 
   // Animations Parallaxe existantes
   const yHero = useTransform(scrollYProgress, [0, 0.5], [0, 200]);

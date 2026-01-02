@@ -1,5 +1,5 @@
 'use client'
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic'; // Pas nécessaire avec 'use client' et useQuery, mais peut aider si le build échoue
 import React from 'react';
 import { motion } from 'framer-motion';
 import { LucideSparkles, ArrowRight, Loader2, ShoppingBag } from 'lucide-react';
@@ -9,14 +9,11 @@ import {
   databases, storage, 
   DATABASE_ID, COLLECTION_PRODUCTS_ID, BUCKET_IMAGES_ID 
 } from '@/lib/appwrite';
+import { dataService, resolveImageUrl, LOCAL_PRODUCTS } from '@/lib/data-service';
 
 // 1. Fonction de récupération des données
 const fetchAllProducts = async () => {
-  const response = await databases.listDocuments(
-    DATABASE_ID, 
-    COLLECTION_PRODUCTS_ID
-  );
-  return response.documents;
+  return await dataService.getProducts();
 };
 
 export default function AllProductsPage() {
@@ -24,19 +21,18 @@ export default function AllProductsPage() {
   const { data: products, isLoading, isError } = useQuery({
     queryKey: ['products'],
     queryFn: fetchAllProducts,
+    initialData: LOCAL_PRODUCTS, // Fallback immédiat
+    staleTime: 0, // Toujours essayer de récupérer les données fraîches
+    retry: 3,
   });
 
   // Helper pour transformer l'ID de l'image en URL Appwrite
   const getImageUrl = (imageId: string) => {
-    if (!imageId) return '';
-    return storage.getFileView(BUCKET_IMAGES_ID, imageId).toString();
+    return resolveImageUrl(imageId);
   };
 
-  if (isError) return (
-    <div className="h-screen flex items-center justify-center font-serif italic text-stone-500">
-      Une erreur est survenue lors de l'appel de la collection.
-    </div>
-  );
+  // On ne bloque plus l'affichage en cas d'erreur car on a initialData
+  // if (isError) return (...)
 
   return (
     <div className="bg-[#FAF7F7] min-h-screen pb-24 font-sans relative">
