@@ -5,6 +5,7 @@ import { databases, DATABASE_ID, COLLECTION_PRODUCTS_ID } from '@/lib/appwrite';
 import ProductClient from '@/components/ui/productClient';
 import { notFound } from 'next/navigation';
 import { dataService, LOCAL_PRODUCTS } from '@/lib/data-service';
+import { Metadata } from 'next';
 
 // Génération statique des pages produits au build (pour les performances maximales)
 export async function generateStaticParams() {
@@ -21,7 +22,7 @@ export async function generateStaticParams() {
   }
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params; // Ici on utilise 'id' car le dossier est [id]
   
   try {

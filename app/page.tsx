@@ -165,7 +165,7 @@ export default function HomePage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
-              {signatureProducts?.map((product, idx) => (
+              {signatureProducts?.map((product: any, idx: number) => (
                 <motion.div 
                   key={product.$id}
                   initial={{ opacity: 0, y: 50 }}

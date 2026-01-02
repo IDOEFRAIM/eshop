@@ -66,7 +66,7 @@ export default function AllProductsPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-32">
-            {products?.map((product, idx) => (
+            {products?.map((product: any, idx: number) => (
               <motion.div
                 key={product.$id}
                 initial={{ opacity: 0, y: 30 }}
